@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Deep Portrait Lighting Enhancement with 3D Guidance
+</title>
+	<!-- Fonts and stuff -->
+	<link rel="stylesheet" type="text/css" href="./css/project.css" media="screen">
+	<link rel="stylesheet" type="text/css" media="screen" href="./css/iconize.css">
+</head>
+
+<body>
+	<div id="content">
+		<div id="content-inner">
+
+			<div class="section head">
+
+				<h1>Deep Portrait Lighting Enhancement with 3D Guidance
+			</h1>
+				<div class="authors">
+					<a href="" target="_blank">Fangzhou Han</a><sup> 1✝</sup>&#160;&#160;
+					<a href="https://cassiepython.github.io/" target="_blank">Can Wang</a><sup> 1✝</sup>&#160;&#160;
+					<a href="" target="_blank">Hao Du</a><sup> 1</sup>&#160;&#160;
+					<a href="https://liaojing.github.io/html/" target="_blank">Jing Liao</a><sup> 1*</sup>&#160;&#160;
+				</div>
+
+				<div class="affiliations">
+					<sup>1</sup>City University of Hong Kong&#160;&#160;
+					<sup>✝</sup>Equal Contribution&#160;&#160;
+					<sup>*</sup>Corresponding Author&#160;&#160;
+				</div>
+
+			</div>
+			<div>
+				<table border="0" align="center">
+	    	</table>
+			</div>
+
+			<div class="section abstract">
+			</div>
+
+			<div class="section teaser">
+				<iframe width="640" height="360" src="data/video.mp4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			</div>
+
+			<div class="section abstract">
+				<h2>Abstract</h2> </br>
+				<p>
+				Despite breakthroughs in recent deep learning methods for image lighting enhancement, they are inferior when applied to portraits because 3D facial information is ignored in their models. To address this, we presents a novel deep learning framework for face lighting enhancement based on 3D facial guidance. Our framework consists of two stages. In the first stage, corrected lighting parameters are predicted by a network from the input bad lighting image, with the assistance of a 3D morphable model and a differentiable renderer. Given the predicted lighting parameter, the differentiable renderer renders a face image with corrected shading and texture, which serves as the 3D guidance for learning image lighting enhancement in the second stage. To better exploit the long-range correlations between the input and the guidance, in the second stage, we design an image-to-image translation network with a novel transformer architecture, which automatically produces a lighting-enhanced result. Experimental results on FFHQ dataset and in-the-wild images show that the proposed method outperforms state-of-the-art methods in terms of both quantitative metrics and visual quality.
+				</p>
+			</div>
+			
+			<div class="section codepaper">
+				<h2>Results</h2>
+				<center>
+				<ul>
+					<li class="grid">
+						<div class="griditem">
+						<img src = "./images/1.gif"><br/>
+						</div>
+					</li>
+					<li class="grid">
+						<div class="griditem">
+						<img src = "./images/2.gif"><br/>
+						</div>
+					</li>
+					<li class="grid">
+						<div class="griditem">
+						<img src = "./images/3.gif"><br/>
+						</div>
+					</li>
+					<li class="grid">
+						<div class="griditem">
+						<img src = "./images/4.gif"><br/>
+						</div>
+					</li>
+				</ul>
+				<ul>
+					<li class="grid">
+						<div class="griditem">
+						<img src = "./images/5.gif"><br/>
+						</div>
+					</li>
+					<li class="grid">
+						<div class="griditem">
+						<img src = "./images/6.gif"><br/>
+						</div>
+					</li>
+					<li class="grid">
+						<div class="griditem">
+						<img src = "./images/7.gif"><br/>
+						</div>
+					</li>
+					<li class="grid">
+						<div class="griditem">
+						<img src = "./images/8.gif"><br/>
+						</div>
+					</li>
+				</ul>
+				</center>
+			</div>
+
+			<div class="section results">
+				<h2>More Results</h2>
+				<center>
+				<ul>
+					<li class="grid">
+						<div class="griditem">
+						<a href="./web_show_ffhq.html">Results on the FFHQ Dataset</a><br>
+						</div>
+					</li>
+					<li class="grid">
+						<div class="griditem">
+						<a href="./web_show_real.html">Results on the In-the-wild Dataset</a><br>
+						</div>
+					</li>		
+				</ul>
+				</center>
+			</div>
+			
+			<div class="section userstudy">
+				<h2>User Study</h2>
+				<center>
+				<ul>
+					<li class="grid">
+						<div class="griditem">
+						<a href="https://www.wjx.cn/vj/wJUnVYZ.aspx">Click to see the User Study</a><br>
+						</div>
+					</li>
+				</ul>
+				</center>
+			</div>
+			
+			<div class="section download">
+				<h2>Download</h2>
+				<center>
+				<ul>
+					<li class="grid">
+						<div class="griditem">
+						<a href="./web_show_train.html">Our Synthesized Dataset (Click to see parts of the dataset.)</a><br>
+						</div>
+					</li>
+				</ul>
+				</center>
+			</div>
+
+			</div>
+
+		</div>
+	</div>
+
+</body></html>
