@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="NeRF-Art: Text-Driven Neural Radiance Fields Stylization">
+  <meta name="keywords" content="FDNeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NeRF-Art: Text-Driven Neural Radiance Fields Stylization</title>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/cityu.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">NeRF-Art: Text-Driven Neural Radiance Fields Stylization</h1>
+          <h1 class="title is-3">arXiv 2022</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://cassiepython.github.io/">Can Wang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="">Ruixiang Jiang</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://mlchai.com/">Menglei Chai</a><sup>3</sup>,</span>
+            <span class="author-block">
+              <a href="http://mingminghe.com/">Mingming He</a><sup>4</sup>,</span>
+			<span class="author-block">
+              <a href="http://www.dongdongchen.bid/">Dongdong Chen</a><sup>5</sup>,</span>
+            <span class="author-block">
+              <a href="https://liaojing.github.io/html/">Jing Liao</a><sup>1*</sup>,</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>City University of Hong Kong,</span>
+			<span class="author-block"><sup>2</sup>Hong Kong Polytechnic University,</span>
+            <span class="author-block"><sup>3</sup>Creative Vision, Snap Inc.</span>
+			<span class="author-block"><sup>4</sup>USC Institute for Creative Technologies</span>
+			<span class="author-block"><sup>5</sup>Microsoft Cloud AI</span>
+			<span class="author-block"><sup>*</sup>Corresponding Author</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/cassiePython/NeRF-Art"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-std1">
+          <img src="./static/video/std1.gif">
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<!-- Teaser. -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div>
+        <img src="./static/images/placeholder.jpg" alt="teaser" class="center">
+      </div>
+      <h2 class="subtitle has-text">
+        <span class="dnerf">NeRF-Art</span>, Our method stylizes a pre-trained NeRF to match the desired style described by a text prompt. It modulates not
+only appearance but also geometry of NeRF.
+      </h2>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body" style="background-color: white;">
+    <div class="container is-max-desktop">
+      <div id="results-carousel" class="carousel results-carousel">
+
+        <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+          <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/human/volsdf_fangzhou_rgb.gif" style="width:40%; ">
+        </div>
+		
+        <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+          <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/human/volsdf_fangzhou_van_rgb.gif" style="width:40%; ">
+        </div>
+        <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+          <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/human/volsdf_fangzhou_elf_rgb.gif" style="width:40%; ">
+        </div>
+        <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+          <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/human/volsdf_fangzhou_fauvism_rgb.gif" style="width:40%; ">
+        </div>
+        <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+          <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/human/volsdf_fangzhou_lord_rgb.gif" style="width:40%; ">
+        </div>
+		<div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+          <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/human/volsdf_fangzhou_edvard_rgb.gif" style="width:40%; ">
+        </div>
+		<div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+          <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/human/volsdf_fangzhou_fer_rgb.gif" style="width:40%; ">
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-body" style="background-color: white;">
+    <div class="container is-max-desktop">
+      <div id="results-carousel" class="carousel results-carousel">
+
+        <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+          <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/trex.gif" style="width:75%; ">
+        </div>
+        <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+          <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/trex_checkerboard.gif" style="width:75%; ">
+        </div>
+        <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+          <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/trex_fireworks.gif" style="width:75%; ">
+        </div>
+        <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+          <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/trex_cubism_painting.gif" style="width:75%; ">
+        </div>
+        <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+          <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/trex_crystal.gif" style="width:75%; ">
+        </div>
+		<div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+          <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/trex_colorful_galaxy.gif" style="width:75%; ">
+        </div>
+		<div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+          <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/trex_a_mosaic_design.gif" style="width:75%; ">
+        </div>
+		<div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+          <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/trex_Autumn_Tree.gif" style="width:75%; ">
+        </div>
+		<div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+          <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/trex_pixar.gif" style="width:75%; ">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+  <!-- <div class="container"> -->
+
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column is-four-fifths"> -->
+      <div class="column is-full-width">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            As a powerful representation of 3D scenes, Neural radiance fields (NeRF) enable high-quality novel view synthesis given a set of multi-view images. Editing NeRF, however, remains challenging, especially on simulating a text-guided style with both the appearance and the geometry altered simultaneously. In this paper, we present \textit{NeRF-Art}, a text-guided NeRF stylization approach that manipulates the style of a pre-trained NeRF model with a single text prompt. Unlike previous approaches that either lack sufficient geometry deformations and texture details or require meshes to guide the stylization, our method can shift a 3D scene to the new domain characterized by desired geometry and appearance variations without any mesh guidance. This is achieved by introducing a novel global-local contrastive learning strategy, combined with the directional constraint to simultaneously control both the trajectory and the strength of the target style. Moreover, we adopt a weight regularization method to effectively suppress the cloudy artifacts and the geometry noises when transforming the density field for geometry stylization. Through extensive experiments on various styles, our method is demonstrated to be effective and robust regarding both single-view stylization quality and cross-view consistency.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pipeline. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <br />
+        <h2 class="title is-3">Pipeline</h2>
+          <img src="./static/images/pipeline.png" alt="method" style="width:70%; ">
+        <div class="content has-text-justified">
+          <p>
+            NeRF-Art Pipeline. 
+			In the reconstruction stage, our method first pre-trains the NeRF model of the target scene from multi-view input with reconstruction loss. 
+			In the stylization stage, our method stylized NeRF model, guided by a text prompt, using a combination of relative directional loss and global-local contrastive loss in the CLIP embedding space, plus weight regularization loss and perceptual loss.
+          </p>
+        </div>
+
+      </div>
+    </div>
+	
+	<!-- Geometry. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <br />
+        <h2 class="title is-3">Geometry Evaluation</h2>
+          <img src="./static/images/ge.png" alt="method" style="width:100%; ">
+
+      </div>
+    </div>
+
+    <!-- Results. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="container is-max-desktop">
+        <br />
+        <h2 class="title is-3">More Results</h2>
+
+        <h3 class="title is-5" style="text-align:left"></h3>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/human/volsdf_shuquan_rgb.gif" style="width:40%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/human/volsdf_shuquan_van_rgb.gif" style="width:40%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/human/volsdf_shuquan_bear_rgb.gif" style="width:40%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/human/volsdf_shuquan_lord_rgb.gif" style="width:40%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/human/volsdf_shuquan_zombie_rgb.gif" style="width:40%; ">
+          </div>
+		  <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/human/volsdf_shuquan_fauvism_rgb.gif" style="width:40%; ">
+          </div>
+		   <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/human/volsdf_shuquan_pixar_rgb.gif" style="width:40%; ">
+          </div>
+        </div>
+
+        <br />
+        <h3 class="title is-5" style="text-align:left"></h3>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/human/volsdf_girl_rgb.gif" style="width:50%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/human/volsdf_girl_van_rgb.gif" style="width:50%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/human/volsdf_girl_elf_rgb.gif" style="width:50%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/human/volsdf_girl_fauvism_rgb.gif" style="width:50%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/human/volsdf_girl_lord_rgb.gif" style="width:50%; ">
+          </div>
+		  <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/human/volsdf_girl_edvard_rgb.gif" style="width:50%; ">
+          </div>
+		  <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/human/volsdf_girl_pixar_rgb.gif" style="width:50%; ">
+          </div>
+        </div>
+		
+		<br />
+        <h3 class="title is-5" style="text-align:left"></h3>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/room.gif" style="width:75%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/room_cubism.gif" style="width:75%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/room_pixar.gif" style="width:75%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/room_white_feather.gif" style="width:75%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/room_colorful_galaxy.gif" style="width:75%; ">
+          </div>
+        </div>
+		
+		<br />
+        <h3 class="title is-5" style="text-align:left"></h3>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/horn.gif" style="width:75%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/horns_The_Starry_Night.gif" style="width:75%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/horns_crystal.gif" style="width:75%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/horns_checkerboard.gif" style="width:75%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/horns_a_mosaic_design.gif" style="width:75%; ">
+          </div>
+        </div>
+		
+		<br />
+        <h3 class="title is-5" style="text-align:left"></h3>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/fern.gif" style="width:75%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/fern_crystal.gif" style="width:75%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/fern_cubism_painting.gif" style="width:75%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/fern_The_Starry_Night.gif" style="width:75%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/fern_a_mosaic_design.gif" style="width:75%; ">
+          </div>
+        </div>
+		
+		<br />
+        <h3 class="title is-5" style="text-align:left"></h3>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/flower.gif" style="width:75%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/flower_crystal.gif" style="width:75%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/flower_cubism_painting.gif" style="width:75%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/flower_The_Starry_Night.gif" style="width:75%; ">
+          </div>
+          <div class="item" style="margin: 0px; overflow: auto; border:0px; text-align: center;">
+            <img src="https://raw.githubusercontent.com/cassiePython/nerfart-pages/master/scenes/flower_a_mosaic_design.gif" style="width:75%; ">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{wang2022nerf,
+      title={NeRF-Art: Text-Driven Neural Radiance Fields Stylization},
+      author={Can Wang, Ruixiang Jiang, Menglei Chai, Mingming He, Dongdong Chen, Jing Liao},
+      journal={arXiv preprint arXiv:XXXX.XXXXX},
+      year={2022}
+    }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+
+    <div class="content has-text-centered">
+      <a class="icon-link"
+        href="">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" 
+        href="https://github.com/FDNeRF/FDNeRF" 
+        class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+
+            The <a href="https://github.com/nerfies/nerfies.github.io">source code</a> for the website 
+            was taken from Nerfies. We appreciate the authors sharing the templates with us.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
