@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Fine-Grained Neural Implicit Fields Editing with Mesh Guidance">
+  <meta name="keywords" content="FDNeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mesh-Guided Neural Implicit Field Editing</title>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/cityu.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Mesh-Guided Neural Implicit Field Editing</h1>
+          <h1 class="title is-3">arXiv 2023</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://cassiepython.github.io/">Can Wang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="http://mingminghe.com/">Mingming He</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://mlchai.com/">Menglei Chai</a><sup>3</sup>,</span>
+			<span class="author-block">
+              <a href="http://www.dongdongchen.bid/">Dongdong Chen</a><sup>4</sup>,</span>
+            <span class="author-block">
+              <a href="https://liaojing.github.io/html/">Jing Liao</a><sup>1*</sup>,</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>City University of Hong Kong</span>
+            <span class="author-block"><sup>2</sup>Netflix Eyeline Studios</span>
+            <span class="author-block"><sup>3</sup>Google AR Perception</span>
+			<span class="author-block"><sup>4</sup>Microsoft Cloud AI</span>
+			<span class="author-block"><sup>*</sup>Corresponding Author</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2212.08070"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2212.08070"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/cassiePython/MNeuEdit/tree/master"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-std1">
+          <img src="./static/video/std1.gif">
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<!-- Teaser. -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div>
+        <img src="./static/images/teaser.png" alt="teaser" class="center">
+      </div>
+      <h2 class="subtitle has-text">
+        Our approach enables the manipulation of both the geometry and color of neural implicit fields through differentiable colorized meshes. This
+includes tasks such as adding or removing geometry, deforming existing geometry, and editing textures.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+  <!-- <div class="container"> -->
+
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column is-four-fifths"> -->
+      <div class="column is-full-width">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Neural implicit fields have emerged as a powerful 3D representation for reconstructing and rendering photo-realistic views, yet they possess limited editability. Conversely, explicit 3D representations, such as polygonal meshes, offer ease of editing but may not be as suitable for rendering high-quality novel views. To harness the strengths of both representations, we propose a new approach that employs a mesh as a guiding mechanism in editing the neural radiance field. We first introduce a differentiable method using marching tetrahedra for polygonal mesh extraction from the neural implicit field and then design a differentiable color extractor to assign colors obtained from the volume renderings to this extracted mesh. This differentiable colored mesh allows gradient back-propagation from the explicit mesh to the implicit fields, empowering users to easily manipulate the geometry and color of neural implicit fields. To enhance user control from coarse-grained to fine-grained levels, we introduce an octree-based structure into its optimization. This structure prioritizes the edited regions and the surface part, making our method achieve fine-grained edits to the neural implicit field and accommodate various user modifications, including object additions, component removals, specific area deformations, and adjustments to local and global colors. Through extensive experiments involving diverse scenes and editing operations, we have demonstrated the capabilities and effectiveness of our method.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <br />
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+
+          <!-- <iframe src="https://www.youtube.com/watch?v=at_42ekU0I0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+          <iframe width="400" height="300" src="https://www.youtube.com/embed/QFEVZr3ziDE"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+          </iframe>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Pipeline. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <br />
+        <h2 class="title is-3">Pipeline</h2>
+          <img src="./static/images/pipeline.png" alt="method" style="width:90%; ">
+        <div class="content has-text-justified">
+          <p>
+            To allow editing neural radiance fields with mesh guidance, our method first introduces a differentiable octree-based marching tetrahedra.
+            for mesh extraction and a differentiable color extraction to produce colors for this mesh. Then given a target mesh, our differentiable colored mesh allows
+            users to edit the neural implicit fields in a mesh-based workflow via a two-step optimization method, such as first optimizing the density fields to add a candy
+            to the mesh and followed by optimizing the radiance fields to paint colors.
+             </p>
+        </div>
+
+      </div>
+    </div>
+
+	<!-- Geometry. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <br />
+        <h2 class="title is-3">Geometry Editing</h2>
+          <img src="./static/images/geometry-editing.png" alt="method" style="width:95%; ">
+
+      </div>
+    </div>
+
+    <!-- Color. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <br />
+        <h2 class="title is-3">Color Editing</h2>
+          <img src="./static/images/color-editing.png" alt="method" style="width:85%; ">
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{wang2023mesh,
+  title={Mesh-Guided Neural Implicit Field Editing},
+  author={Wang, Can and Chai, Menglei and He, Mingming and Chen, Dongdong and Liao, Jing},
+  journal={arXiv preprint arXiv:2212.08070},
+  year={2022}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+
+    <div class="content has-text-centered">
+      <a class="icon-link"
+        href="">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link"
+        href="https://github.com/FDNeRF/FDNeRF"
+        class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+
+            The <a href="https://github.com/nerfies/nerfies.github.io">source code</a> for the website
+            was taken from Nerfies. We appreciate the authors sharing the templates with us.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
